@@ -11,6 +11,8 @@ exclude:
 - excluded
 - vendor
 - makefile
+- docs_local
+- docs
 
 toc:
   min_level: 1
@@ -33,7 +35,8 @@ destination: docs
 
 feed:
   collections:
-    - practical_cs
+    # - practical_cs
+    - physics
 
 markdown: kramdown
 mathjax: true

@@ -1,0 +1,43 @@
+plugins:
+  - jekyll-toc
+  - jekyll-feed
+
+url: stealthmate.github.io
+baseurl: /
+
+exclude:
+- Gemfile
+- Gemfile.lock
+- excluded
+- vendor
+- makefile
+
+toc:
+  min_level: 1
+  max_level: 3
+
+theme: minima
+
+collections:
+  # practical_cs:
+  #   output: True
+  #   title: 実践情報工学
+  #   order: 0
+  physics:
+    output: True
+    title_en: Physics
+    title_jp: 物理
+    order: 1
+
+destination: docs
+
+feed:
+  collections:
+    - practical_cs
+
+markdown: kramdown
+mathjax: true
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM

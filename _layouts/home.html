@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    {% include head.html %}
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/css/style.css" | relative_url }}">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>
+          {{ page.title }}
+        </h1>
+        <div id="table-of-contents">
+          {{ content | toc_only }}
+        </div>
+      </header>
+      <section>
+        {% assign collections = site.collections | where_exp: "x", "x.label != 'posts'" | sort: "order" %}
+        {% for collection in collections %}
+        <a href="{{ collection.label | relative_url }}/home.html">{{ collection.title }}</a>
+        {% endfor %}
+      </section>
+    </main>
+  </body>
+</html>

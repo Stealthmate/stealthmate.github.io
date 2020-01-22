@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{ "/assets/css/syntax.css" | relative_url }}">
+<link rel="stylesheet" type="text/css" href="{{ "/assets/css/style.css" | relative_url }}">
+<script async type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  var isMobile = window.matchMedia('(max-width: 600px)').matches
+  console.log(isMobile)
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+    },
+    "HTML-CSS": {
+      scale: isMobile ? 70 : 100,
+      styles: {
+        ".MathJax_Display": {
+          width: isMobile ? "95%" : "100%"
+        }
+      }
+    },
+  });
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    {% include head.html %}
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/css/collection_home.css" | relative_url }}">
+  </head>
+  <body>
+    <nav>
+      <a href="{{ "/" | relative_url }}">Home</a>
+    </nav>
+    {% assign collection = site.collections | where:"label", page.collection | first %}
+    <main>
+      <header>
+        <h1>
+          {{ collection.title }}
+        </h1>
+      </header>
+      <section>
+        <h1>記事一覧</h1>
+
+	      <details open class="by-published">
+	        <summary>投稿順</summary>
+	        <ol>
+	          {% assign groups = site[collection.label] | where_exp: "x", "x.title != 'Home' " | group_by: "published" | sort: "name" | reverse %}
+	          {% for g in groups %}
+	          <li>
+	            {% if g.items.size == 1 %}
+	            {% assign post = g.items[0] %}
+	            {% assign title = g.name | append: " - " | append: post.title %}
+	            {% include post_link.html post=post title=title %}
+	            {% else %}
+	            {{ g.name }}
+	            <ul>
+		            {% for post in g.items %}
+		            <li>
+		              {% include post_link.html post=post title=post.title %}
+		            </li>
+		            {% endfor %}
+	            </ul>
+	            {% endif %}
+	          </li>
+	          {% endfor %}
+	        </ol>
+	      </details>
+
+	      {% assign groups = site[collection.label] | where_exp: "x", "x.title != 'Home' " | group_by: "series" | where_exp: "x", "x.name != '' " | sort: "name" | reverse %}
+	      {% if groups.size > 0 %}
+	      <details open class="by-series">
+	        <summary>シリーズ</summary>
+	        <ul>
+	          {% for g in groups %}
+	          <li>
+	            {{ g.name }}
+	            {% assign posts = g.items | sort: "series_part" %}
+	            <ol>
+		            {% for post in g.items %}
+		            <li>
+		              {% capture title %}
+		              第{{post.series_part}}講：{{post.title}}
+		              {% endcapture %}
+		              {% include post_link.html post=post title=title %}
+		            </li>
+		            {% endfor %}
+	            </ol>
+	          </li>
+	          {% endfor %}
+	        </ul>
+	      </details>
+	      {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

@@ -14,6 +14,7 @@ exclude:
 - makefile
 - docs_local
 - docs
+- ignore
 
 toc:
   min_level: 1

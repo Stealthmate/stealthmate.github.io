@@ -4,3 +4,6 @@ assets/images/%.svg: assets/images/%.dot
 
 serve:
 	bundle exec jekyll serve --host=0.0.0.0 --destination=docs_local
+
+build:
+	bundle exec jekyll build

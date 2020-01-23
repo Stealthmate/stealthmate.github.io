@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="stealthmate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="stealthmate.github.io/" rel="alternate" type="text/html" /><updated>2020-01-24T00:58:38+09:00</updated><id>stealthmate.github.io/feed.xml</id><entry><title type="html">A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface</title><link href="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html" rel="alternate" type="text/html" title="A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface" /><published>2020-01-24T00:00:00+09:00</published><updated>2020-01-24T00:00:00+09:00</updated><id>stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder</id><content type="html" xml:base="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html">&lt;h1 id=&quot;preface&quot;&gt;Preface&lt;/h1&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\gdef\vec#1{\mathbf{#1}}
+\gdef\abs#1{\lvert #1 \rvert}
+$$&lt;/div&gt;
+
+&lt;p&gt;I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed fro m the top&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;margin: auto; width: 500px; display: block;&quot; src=&quot;stealthmate.github.io/assets/images/01-cylinder-vector-field.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I understand the intuitive reasoning behind this, however I was looking for a mathematical proof of that, and since I didn’t find one, I constructed one myself. In this post I have layed out my process of reasoning and I hope that it will help other people as well.&lt;/p&gt;
+
+&lt;h1 id=&quot;stating-the-problem-mathematically&quot;&gt;Stating the problem mathematically&lt;/h1&gt;
+
+&lt;p&gt;Given a cylinder with radius $R$, bounded by the surface&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+F(x, y, z) = x^2 + y^2 - R^2 = 0
+$$&lt;/div&gt;
+
+&lt;p&gt;and having uniform volume charge density $\rho$, show that the electric field at any pointoutside $F$, that is, any point $\vec p = (x_p, y_p, z_p)$ such that $x_p^2 + y_p^2 &amp;gt; R$, the total electric field is a scalar multiple of the surface normal&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec E(\vec p) = c\vec n = c\nabla F = c\begin{pmatrix}
+2x \\
+2y \\
+0
+\end{pmatrix}
+$$&lt;/div&gt;
+
+&lt;p&gt;where $c$ is some constant and the electric field is given by integrating Coulomb’s Law over the whole cylinder ($\vec x$ signifying the position of the infinitely small volume unit)&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec E(\vec p) = \frac{\rho}{4\pi\epsilon_0}\iiint_V_V \frac{\vec p - \vec x}{\abs{\vec p - \vec x}^3} dv
+$$&lt;/div&gt;
+
+&lt;p&gt;Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant.&lt;/p&gt;
+
+&lt;h1 id=&quot;part-1---solving-for-the-z-dimension&quot;&gt;Part 1 - Solving for the $z$ dimension&lt;/h1&gt;
+
+&lt;p&gt;First, we will show that for any $\vec p$ outside of the cylinder, the electric field’s $z$ component at that point is zero. Let&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec p = \begin{pmatrix}
+r_p\cos \theta_p \\
+r_p\sin \theta_p \\
+z_p
+\end{pmatrix}
+$$&lt;/div&gt;
+
+&lt;p&gt;Now the electric field’s $z$ component is given by:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec E(\vec p)_z = \frac{\rho}{4\pi\epsilon_0}\iiint_V_V \frac{z_p - z}{\abs{\vec p - \vec x}^3}dv = \frac{\rho}{4\pi\epsilon_0}\int_0^R\int_0^{2\pi}\int_{-\infty}^{+\infty} \frac{z_p - z}{\lvert \vec p - \vec x \rvert^3}dzd\theta dr
+$$&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Note: I believe in this case the order of integration does not matter, however I do not have sufficient background to prove this (by e.g. applying Fubini’s theorem).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Intuitively, integrating over $z$ should gives us the 0 we need, since the electric forces on the two sides of $\vec p$ will “cancel out” in the $z$ dimension. Therefore, let us consider our original expression only in terms of the innermost integral. That is, let us evaluate:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+I = \int_{-\infty}^{+\infty} \frac{z_p - z}{\abs{\vec p - \vec x}}dz
+$$&lt;/div&gt;
+
+&lt;p&gt;First, we will focus on $\abs{\vec p - \vec x}$. It can be shown for any $\vec a$ and $\vec b$ that:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\abs{\vec a - \vec b}^2 = \abs{\vec a}^2 - 2\vec a\cdot\vec b + \abs{\vec b}^2
+$$&lt;/div&gt;
+
+&lt;p&gt;Applying this to the above yields:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\abs{\vec p - \vec x}^2 &amp;= \abs{\vec p}^2 - 2\vec p\cdot\vec x + \abs{\vec x}^2 \\
+&amp;= \abs{\vec p}^2 - 2r_pr(\cos\theta_p\cos\theta + \sin\theta_p\sin\theta) - 2z_pz + r^2 + z^2 \\
+&amp;= \abs{\vec p}^2 - 2r_pr\cos(\theta_p - \theta) - 2z_pz + r^2 + z^2
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Since $I$ is an integral only in terms of $z$, we can treat everything except $z$ as a constant, which allows us to reduce the above to&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\abs{\vec p - \vec x}^2 = z^2 - 2z_pz + C
+$$&lt;/div&gt;
+
+&lt;p&gt;therefore yielding:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+I = \int_{-\infty}^{+\infty} \frac{z_p - z}{\sqrt{z^2 - 2z_pz + C}^3}dz
+$$&lt;/div&gt;
+
+&lt;p&gt;We will now substitute $u = z^2 - 2z_pz + C$. Since $u = \abs{\vec p - \vec x}^2$, by the definition of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Inner_product_space#Definition&quot;&gt;inner product&lt;/a&gt; $u$ is strictly positive, so taking the square root is well-defined. On the other hand, this is not an injective substitution, however since $u$ is symmetric around $z = z_p$, we can split $I$ into two parts where $u$ will be injective in each. That is, we write&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+I &amp;= \int_{-\infty}^{+\infty} \frac{z_p - z}{\sqrt{z^2 - 2z_pz + C}^3}dz \\
+&amp;= \int_{-\infty}^{0}\frac{z_p - z}{\sqrt{z^2 - 2z_pz + C}^3}dz + \int_0^\infty \frac{z_p - z}{\sqrt{z^2 - 2z_pz + C}^3}dz
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Finally, we have $du = (2z - 2z_p)dz = 2(z - z_p)dz$ or simply $\frac{1}{2}du = (z - z_p)dz$, which fits nicely into $I$, yielding:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+I &amp;= -\int_{\infty}^{u(z_p)}\frac{du}{\sqrt{u}^3} - \int_{u(z_p)}^\infty \frac{du}{\sqrt{u}^3} \\
+&amp;= \int_{u(z_p)}^{\infty}\frac{du}{\sqrt{u}^3} - \int_{u(z_p)}^\infty \frac{du}{\sqrt{u}^3} \\
+&amp;= 0
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;We have shown that $I = 0$. If we plug this back into our electric field integral, we get&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec E(\vec p)_z = \frac{\rho}{4\pi\epsilon_0}\int_0^R\int_0^{2\pi} Id\theta dr = \frac{\rho}{4\pi\epsilon_0}\int_0^R\int_0^{2\pi} 0d\theta dr = 0
+$$&lt;/div&gt;
+
+&lt;p&gt;Thus we have finally shown that the electric field’s $z$ component is zero for any point outside the cylinder.&lt;/p&gt;
+
+&lt;h1 id=&quot;part-2---solving-for-the-x-and-y-dimensions&quot;&gt;Part 2 - Solving for the $x$ and $y$ dimensions&lt;/h1&gt;
+
+&lt;p&gt;First, we will show that for a point $\vec p$ outside of the cylinder, its projection on the $z = 0$ plane is parallel to the normal of $F$. Take&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec p = \begin{pmatrix}
+r_p\cos \theta_p \\
+r_p\sin \theta_p \\
+z_p
+\end{pmatrix}
+$$&lt;/div&gt;
+
+&lt;p&gt;Now we want to find the projection $\hat{\vec p}$ of $\vec p$ onto the $z = 0$ plane. We do this by solving&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\hat{\vec p}\cdot\vec m &amp;= 0 \\
+\hat{\vec p} + \vec m &amp;= \vec p
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;where $m$ is the normal to the $z = 0$ plane. It is immediately evident that $\vec m = (0, 0, 1)$, which immediately gives us the solution&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\hat{\vec p} = \begin{pmatrix}
+r_p\cos\theta_p \\
+r_p\sin\theta_p \\
+0
+\end{pmatrix}
+$$&lt;/div&gt;
+
+&lt;p&gt;The normal to $F$ at a point, say $\vec q$, on the surface is given by&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec n_q = \nabla F(\vec q) = \begin{pmatrix}
+R\cos\theta_q \\
+R\sin\theta_q \\
+0
+\end{pmatrix}
+$$&lt;/div&gt;
+
+&lt;p&gt;If we take $\theta_q = \theta_p$, we can show that $\hat{\vec p}$ is indeed parallel to $\vec n_q$&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\hat{\vec p} = \frac{R}{r_p}\vec n_q
+$$&lt;/div&gt;
+
+&lt;p&gt;The result we have obtained allows us to continue our proof by simply proving that the following is true for any $\vec p$&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\vec E({\vec p})_x &amp;= c\vec p_x = c\hat{\vec p}_x = c\frac{cR}{r_p}\vec n_x \\
+\vec E({\vec p})_y &amp;= c\vec p_y = c\hat{\vec p}_y = c\frac{cR}{r_p}\vec n_y
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;From now on, all vectors shall be treated as 2-dimensional, consiting of only $x$ and $y$ components.&lt;/p&gt;
+
+&lt;p&gt;Recall the electric field is given by&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\vec E(\vec p) &amp;= \frac{\rho}{4\pi\epsilon_0}\iiint_V \frac{(\vec p - \vec x)}{\abs{\vec p - \vec x}}dv \\
+&amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \iiint_v\frac{\vec x dv}{\abs{\vec p - \vec x}^3} \Bigg] \\
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Since $\iiint_V \frac{dv}{\abs{\vec p - \vec x}}$ is a scalar, we only need to show that&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\iiint_v\frac{\vec x dv}{\abs{\vec p - \vec x}^3} = c\vec p
+$$&lt;/div&gt;
+
+&lt;p&gt;Consider the case for the $x$ component. We have&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\iiint_v\frac{r\cos\theta}{\abs{\vec p - \vec x}^3}dv = \int_{-\infty}^{\infty}\int_0^R\int_0^{2\pi} \frac{r\cos\theta}{\abs{\vec p - \vec x}^3}d\theta drdz
+$$&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Note: Here I have changed the order of integration. This should be correct, although I do not have a proof that it is.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Recall that&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\abs{\vec p - \vec x}^2 = \abs{\vec p}^2 - 2r_pr\cos(\theta_p - \theta) - 2z_pz + r^2 + z^2
+$$&lt;/div&gt;
+
+&lt;p&gt;This time we shall rewrite this expression preserving $\theta$. That is, we write&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\abs{\vec p - \vec x}^2 = 2r_pr\cos(\theta_p - \theta) + C
+$$&lt;/div&gt;
+
+&lt;p&gt;Now we will solve for the innermost integral w.r.t. $\theta$.&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+I_x &amp;= \int_0^{2\pi} \frac{r\cos\theta}{\abs{\vec p - \vec x}^3}d\theta \\
+&amp;= \int_0^{2\pi} \frac{r\cos\theta}{\sqrt{2r_pr\cos(\theta_p - \theta) + C}^3}d\theta
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Let $\alpha = \theta - \theta_p$ and $d\alpha = d\theta$. Since $\cos(x) = \cos(-x)$, we have:&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+I_x &amp;= \int_{-\theta_p}^{2\pi - \theta_p} \frac{r\cos(\alpha + \theta_p)}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+&amp;= \int_{- \theta_p}^{2\pi - \theta_p} \frac{r(\cos\alpha\cos\theta_p - \sin\alpha\sin\theta_p)}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+&amp;= r\cos\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha - r\sin\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\sin\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Now let us focus on the latter part. Let $u = \cos\alpha$ and $-du = \sin\alpha d\alpha$. Again, this is not an injection and so we need to split the integral&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\int_{- \theta_p}^{2\pi - \theta_p} \frac{\sin\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha &amp;= \int_{- \theta_p}^{\pi - \theta_p} \frac{\sin\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha + \int_{\pi - \theta_p}^{2\pi - \theta_p} \frac{\sin\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+&amp;= -\int_{\cos\theta_p}^{\cos(\pi - \theta_p)} \frac{du}{\sqrt{2r_pru + C}^3} + \int_{\cos(\pi - \theta_p)}^{\cos(2\pi - \theta_p)} \frac{du}{\sqrt{2r_pru + C}^3}d \\
+&amp;= -\int_{\cos\theta_p}^{-\cos(\theta_p)} \frac{du}{\sqrt{2r_pru + C}^3} - \int_{-\cos(\theta_p)}^{\cos(\theta_p)} \frac{du}{\sqrt{2r_pru + C}^3}d \\
+&amp;= \int_{-\cos\theta_p}^{\cos(\theta_p)} \frac{du}{\sqrt{2r_pru + C}^3} - \int_{-\cos(\theta_p)}^{\cos(\theta_p)} \frac{du}{\sqrt{2r_pru + C}^3}d \\
+&amp;= 0
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;We have shown that the integral is zero, which plugged back into $I_x$ gives&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+I_x = r\cos\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha
+$$&lt;/div&gt;
+
+&lt;p&gt;Plugging further back into $\vec E(\vec p)_x$, we have&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\vec E(\vec p)_x &amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_x\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \iiint_v\frac{\vec x_x dv}{\abs{\vec p - \vec x}^3} \Bigg] \\
+&amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_x\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R I_xdrdz \Bigg] \\
+&amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_x\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R \Bigg( r\cos\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \Bigg)drdz \Bigg] \\
+&amp;= \frac{\rho\cos\theta_p}{4\pi\epsilon_0}\Bigg[ r_p\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R\int_{- \theta_p}^{2\pi - \theta_p} \frac{r\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha drdz \Bigg] \\
+&amp;= \frac{\rho\cos\theta_p}{4\pi\epsilon_0}K
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;For brevity, we take the formula in the square braces as $K$.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Now we need to show that $\vec E(\vec p)_y = \frac{\rho\sin\theta_p}{4\pi\epsilon_0}. Similar to $I_x$, we find that&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+I_y &amp;= \int_{-\theta_p}^{2\pi - \theta_p} \frac{r\sin(\alpha + \theta_p)}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+&amp;= \int_{- \theta_p}^{2\pi - \theta_p} \frac{r(\sin\alpha\cos\theta_p + \cos\alpha\sin\theta_p)}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+&amp;= r\cos\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\sin\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha + r\sin\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \\
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;We arrived at a similar formula to the one for $I_x$. From before, we know that the first part evaluates to zero and so&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+I_y = r\sin\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha
+$$&lt;/div&gt;
+
+&lt;p&gt;Again, we plug back into the electric field formula and we get&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\vec E(\vec p)_y &amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_y\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \iiint_v\frac{\vec x_y dv}{\abs{\vec p - \vec x}^3} \Bigg] \\
+&amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_y\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R I_ydrdz \Bigg] \\
+&amp;= \frac{\rho}{4\pi\epsilon_0}\Bigg[ \vec p_y\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R \Bigg( r\sin\theta_p\int_{- \theta_p}^{2\pi - \theta_p} \frac{\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha \Bigg)drdz \Bigg] \\
+&amp;= \frac{\rho\sin\theta_p}{4\pi\epsilon_0}\Bigg[ r_p\iiint_V \frac{dv}{\abs{\vec p - \vec x}} - \int_{-\infty}^{\infty}\int_0^R\int_{- \theta_p}^{2\pi - \theta_p} \frac{r\cos\alpha}{\sqrt{2r_pr\cos\alpha + C}^3}d\alpha drdz \Bigg] \\
+&amp;= \frac{\rho\sin\theta_p}{4\pi\epsilon_0}K
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;Thus we have shown that the above statement is true. We can now finally conclude our proof by showing that by taking $c = \frac{K\rho}{4\pi\epsilon_0r_p}$&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\vec E(\vec p)_x &amp;= c\vec p_x &amp;= \frac{cR}{r_p}\vec n_x \\
+\vec E(\vec p)_y &amp;= c\vec p_y &amp;= \frac{cR}{r_p}\vec n_y\\
+\vec E(\vec p)_z &amp;= 0 &amp;= \frac{cR}{r_p}\vec n_z
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;or more compactly&lt;/p&gt;
+
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\vec E(\vec p) = \frac{cR}{r_p}\vec n
+$$&lt;/div&gt;
+
+&lt;p&gt;Q.E.D.&lt;/p&gt;</content><author><name></name></author><summary type="html">Preface</summary></entry></feed>

@@ -11,14 +11,10 @@
         <h1>
           {{ page.title }}
         </h1>
-        <div id="table-of-contents">
-          {{ content | toc_only }}
-        </div>
       </header>
       <section>
-        {% assign collections = site.collections | where_exp: "x", "x.label != 'posts'" | sort: "order" %}
-        {% for collection in collections %}
-        <a href="{{ collection.label | relative_url }}/home.html">{{ collection.title }}</a>
+        {% for post in site.posts %}
+        <a href="{{ post.url | relative_url }}">{{ post.date | slice: 0, 10 }} - {{ post.title }}</a>
         {% endfor %}
       </section>
     </main>

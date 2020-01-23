@@ -1,0 +1,32 @@
+---
+---
+
+@import 'colors';
+@import 'common';
+
+nav {
+    display: block;
+}
+
+section {
+    font-size: 0.9em;
+}
+
+.by-published {
+    ol {
+	li {
+	    list-style-type: disc;
+	}
+    }
+}
+
+.by-series {
+    ol li {
+	list-style-type: disc;
+    }
+}
+
+.edited {
+    font-size: 0.7em;
+    font-style: italic;
+}

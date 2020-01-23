@@ -1,0 +1,63 @@
+---
+---
+
+@import 'colors';
+@import 'common';
+@import 'math';
+
+@media only screen and (max-width: 800px) {
+    header {
+        h1 {
+            font-size: 1.3em;
+            align-self: center;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 1.15em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    section {
+        font-size: 1em;
+    }
+}
+
+// @media only screen and (min-width: 1000px) {
+//     header {
+//         h1 {
+//             font-size: 1.3em;
+//         }
+
+//         h2 {
+//             font-size: 1.2em;
+//         }
+//     }
+
+//     h1 {
+//         font-size: 1.2em;
+//     }
+
+//     h2 {
+//         font-size: 1.15em;
+//     }
+
+//     h3 {
+//         font-size: 1.1em;
+//     }
+
+//     section {
+//         font-size: 1em;
+//     }
+// }

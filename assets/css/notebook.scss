@@ -1,0 +1,48 @@
+---
+---
+
+@import 'colors';
+@import 'common';
+@import 'math';
+
+$color-text: #333;
+$color-border: #CCC;
+
+body {
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+section h1 {
+    border: none;
+}
+
+h2 {
+    color: $color-text;
+    padding: 3px;
+}
+
+nav {
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+
+    a {
+        padding: 3px;
+        padding-left: 10px;
+    }
+
+    .here-now {
+        font-weight: bold;
+        background: #CCCC;
+        border-radius: 10px;
+    }
+}
+
+main {
+    margin: 20px;
+    padding: 0px;
+}

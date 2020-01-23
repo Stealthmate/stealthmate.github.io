@@ -1,6 +1,7 @@
 plugins:
   - jekyll-toc
   - jekyll-feed
+  - jekyll-katex
 
 url: stealthmate.github.io
 baseurl: /
@@ -20,27 +21,22 @@ toc:
 
 theme: minima
 
-collections:
-  # practical_cs:
-  #   output: True
-  #   title: 実践情報工学
-  #   order: 0
-  physics:
-    output: True
-    title_en: Physics
-    title_jp: 物理
-    order: 1
-
 destination: docs
 
 feed:
   collections:
-    # - practical_cs
-    - physics
+    - posts
 
 markdown: kramdown
-mathjax: true
 highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
   input: GFM
+  math_engine: katex
+
+katex:
+  rendering_options:
+    # Default KaTeX rendering options. See https://github.com/Khan/KaTeX#rendering-options
+    throw_error: true                       # throwOnError - set to false if you want rendering to output error as text rather than a build error
+    error_color: "#cc0000"                  # errorColor
+    global_group: true

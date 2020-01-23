@@ -1,0 +1,24 @@
+---
+---
+
+$color-text: #333;
+$color-border: #CCC;
+
+body {
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+nav {
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    margin: 20px;
+    padding: 0px;
+}

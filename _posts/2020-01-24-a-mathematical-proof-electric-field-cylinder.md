@@ -13,7 +13,7 @@ $$
 
 I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss's law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed fro m the top
 
-<img style="margin: auto; width: 500px; display: block;" src="{{ '/assets/images/01-cylinder-vector-field.png' | absolute_url }}" />
+<img style="margin: auto; width: 500px; display: block;" src="{{ '/assets/images/01-cylinder-vector-field.png' | relative_url }}" />
 
 I understand the intuitive reasoning behind this, however I was looking for a mathematical proof of that, and since I didn't find one, I constructed one myself. In this post I have layed out my process of reasoning and I hope that it will help other people as well.
 
@@ -37,7 +37,7 @@ $$
 
 where $c$ is some constant and the electric field is given by integrating Coulomb's Law over the whole cylinder ($\vec x$ signifying the position of the infinitely small volume unit)
 
-$$\vec E(\vec p) = \frac{\rho}{4\pi\epsilon_0}\iiint_V_V \frac{\vec p - \vec x}{\abs{\vec p - \vec x}^3} dv$$
+$$\vec E(\vec p) = \frac{\rho}{4\pi\epsilon_0}\iiint_V \frac{\vec p - \vec x}{\abs{\vec p - \vec x}^3} dv$$
 
 Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant.
 
@@ -56,7 +56,7 @@ $$
 Now the electric field's $z$ component is given by:
 
 $$
-\vec E(\vec p)_z = \frac{\rho}{4\pi\epsilon_0}\iiint_V_V \frac{z_p - z}{\abs{\vec p - \vec x}^3}dv = \frac{\rho}{4\pi\epsilon_0}\int_0^R\int_0^{2\pi}\int_{-\infty}^{+\infty} \frac{z_p - z}{\lvert \vec p - \vec x \rvert^3}dzd\theta dr
+\vec E(\vec p)_z = \frac{\rho}{4\pi\epsilon_0}\iiint_V \frac{z_p - z}{\abs{\vec p - \vec x}^3}dv = \frac{\rho}{4\pi\epsilon_0}\int_0^R\int_0^{2\pi}\int_{-\infty}^{+\infty} \frac{z_p - z}{\lvert \vec p - \vec x \rvert^3}dzd\theta dr
 $$
 
 - Note: I believe in this case the order of integration does not matter, however I do not have sufficient background to prove this (by e.g. applying Fubini's theorem).

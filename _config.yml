@@ -1,7 +1,6 @@
 plugins:
   - jekyll-toc
   - jekyll-feed
-  - jekyll-katex
 
 url: stealthmate.github.io
 baseurl: /
@@ -33,11 +32,3 @@ highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
   input: GFM
-  math_engine: katex
-
-katex:
-  rendering_options:
-    # Default KaTeX rendering options. See https://github.com/Khan/KaTeX#rendering-options
-    throw_error: true                       # throwOnError - set to false if you want rendering to output error as text rather than a build error
-    error_color: "#cc0000"                  # errorColor
-    global_group: true

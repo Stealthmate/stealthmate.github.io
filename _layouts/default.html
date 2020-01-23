@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    {% include head.html %}
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ "/assets/css/default.css" | relative_url }}">
+  </head>
+  <body>
+    <nav>
+      <a href="{{ "/" | relative_url }}">Home</a>
+    </nav>
+    <main id="app">
+      <header>
+        <h1>{{ page.title }}</h1>
+        <h2>{% raw %} {{ written_on }} {% endraw %}</h2>
+      </header>
+      <hr>
+      <section>
+        {{ content }}
+      </section>
+    </main>
+
+    <script>
+      var POST_LANG = "{{ page.lang }}";
+      var POST_DATE = "{{ page.date | slice: 0, 10 }}";
+      var app = new Vue({
+        el: '#app',
+        computed: {
+          lang() {
+            if(LANGS.includes(POST_LANG)) { return POST_LANG }
+            return "en"
+          },
+          written_on() {
+            console.log(POST_DATE)
+            return DATA.templates.written_on[this.lang].replace("%DATE", POST_DATE)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

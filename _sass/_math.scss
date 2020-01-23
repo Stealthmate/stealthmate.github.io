@@ -1,0 +1,19 @@
+
+.MathJax_Display {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: visible;
+    align-self: center;
+}
+
+.MathJax_Display, div.highlight {
+    overflow-x: auto;
+}
+
+.MathJax_Display::after {
+    // content: 'スクロールできます';
+    display: block;
+    align-self: center;
+    margin-top: 0;
+    font-size: 10px;
+}

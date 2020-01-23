@@ -32,4 +32,4 @@ highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
   input: GFM
-  math_engine: null
+  math_engine: nil

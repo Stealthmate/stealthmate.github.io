@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="stealthmate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="stealthmate.github.io/" rel="alternate" type="text/html" /><updated>2020-01-24T01:33:09+09:00</updated><id>stealthmate.github.io/feed.xml</id><entry><title type="html">A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface</title><link href="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html" rel="alternate" type="text/html" title="A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface" /><published>2020-01-24T00:00:00+09:00</published><updated>2020-01-24T00:00:00+09:00</updated><id>stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder</id><content type="html" xml:base="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html">&lt;h1 id=&quot;preface&quot;&gt;Preface&lt;/h1&gt;
-
-&lt;div class=&quot;kdmath&quot;&gt;$$
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="stealthmate.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="stealthmate.github.io/" rel="alternate" type="text/html" /><updated>2020-04-20T00:33:04+09:00</updated><id>stealthmate.github.io/feed.xml</id><entry><title type="html">Why is the electric field around a cylinder orthogonal to the side?</title><link href="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html" rel="alternate" type="text/html" title="Why is the electric field around a cylinder orthogonal to the side?" /><published>2020-01-24T00:00:00+09:00</published><updated>2020-01-24T00:00:00+09:00</updated><id>stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder</id><content type="html" xml:base="stealthmate.github.io/2020/01/24/a-mathematical-proof-electric-field-cylinder.html">&lt;h2 id=&quot;preface&quot;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;$
 \gdef\vec#1{\mathbf{#1}}
 \gdef\abs#1{\lvert #1 \rvert}
-$$&lt;/div&gt;
+$
+I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed from the top&lt;/p&gt;
 
-&lt;p&gt;I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed fro m the top&lt;/p&gt;
-
-&lt;p&gt;&lt;img style=&quot;margin: auto; width: 500px; display: block;&quot; src=&quot;/assets/images/01-cylinder-vector-field.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/01-cylinder-vector-field.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I understand the intuitive reasoning behind this, however I was looking for a mathematical proof of that, and since I didn’t find one, I constructed one myself. In this post I have layed out my process of reasoning and I hope that it will help other people as well.&lt;/p&gt;
 
-&lt;h1 id=&quot;stating-the-problem-mathematically&quot;&gt;Stating the problem mathematically&lt;/h1&gt;
+&lt;h2 id=&quot;stating-the-problem-mathematically&quot;&gt;Stating the problem mathematically&lt;/h2&gt;
 
 &lt;p&gt;Given a cylinder with radius $R$, bounded by the surface&lt;/p&gt;
 
@@ -19,7 +17,7 @@ $$&lt;/div&gt;
 F(x, y, z) = x^2 + y^2 - R^2 = 0
 $$&lt;/div&gt;
 
-&lt;p&gt;and having uniform volume charge density $\rho$, show that the electric field at any pointoutside $F$, that is, any point $\vec p = (x_p, y_p, z_p)$ such that $x_p^2 + y_p^2 &amp;gt; R$, the total electric field is a scalar multiple of the surface normal&lt;/p&gt;
+&lt;p&gt;and having &lt;em&gt;uniform&lt;/em&gt; volume charge density $\rho$, show that the electric field at any point outside $F$, that is, any point $\vec p = (x_p, y_p, z_p)$ such that $x_p^2 + y_p^2 &amp;gt; R$, the total electric field is a scalar multiple of the surface normal&lt;/p&gt;
 
 &lt;div class=&quot;kdmath&quot;&gt;$$
 \vec E(\vec p) = c\vec n = c\nabla F = c\begin{pmatrix}
@@ -35,9 +33,19 @@ $$&lt;/div&gt;
 \vec E(\vec p) = \frac{\rho}{4\pi\epsilon_0}\iiint_V \frac{\vec p - \vec x}{\abs{\vec p - \vec x}^3} dv
 $$&lt;/div&gt;
 
-&lt;p&gt;Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant.&lt;/p&gt;
+&lt;p&gt;Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant. Furthermore, if we use cylindrical coordinates, we have&lt;/p&gt;
 
-&lt;h1 id=&quot;part-1---solving-for-the-z-dimension&quot;&gt;Part 1 - Solving for the $z$ dimension&lt;/h1&gt;
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+\Delta v &amp;= \frac{1}{2}((r + \Delta r)^2 - r^2)\Delta\theta \Delta z \\
+&amp;= \frac{1}{2}(2r\Delta r + (\Delta r^2))\Delta\theta \Delta z \\
+&amp;= r\Delta r\Delta\theta \Delta z + (\Delta r^2)\Delta\theta \Delta z
+\end{aligned}
+$$&lt;/div&gt;
+
+&lt;p&gt;When constructing the integral, we apply a limit over this&lt;/p&gt;
+
+&lt;h2 id=&quot;part-1---solving-for-the-z-dimension&quot;&gt;Part 1 - Solving for the $z$ dimension&lt;/h2&gt;
 
 &lt;p&gt;First, we will show that for any $\vec p$ outside of the cylinder, the electric field’s $z$ component at that point is zero. Let&lt;/p&gt;
 
@@ -120,7 +128,7 @@ $$&lt;/div&gt;
 
 &lt;p&gt;Thus we have finally shown that the electric field’s $z$ component is zero for any point outside the cylinder.&lt;/p&gt;
 
-&lt;h1 id=&quot;part-2---solving-for-the-x-and-y-dimensions&quot;&gt;Part 2 - Solving for the $x$ and $y$ dimensions&lt;/h1&gt;
+&lt;h2 id=&quot;part-2---solving-for-the-x-and-y-dimensions&quot;&gt;Part 2 - Solving for the $x$ and $y$ dimensions&lt;/h2&gt;
 
 &lt;p&gt;First, we will show that for a point $\vec p$ outside of the cylinder, its projection on the $z = 0$ plane is parallel to the normal of $F$. Take&lt;/p&gt;
 
@@ -270,7 +278,7 @@ $$&lt;/div&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Now we need to show that $\vec E(\vec p)_y = \frac{\rho\sin\theta_p}{4\pi\epsilon_0}. Similar to $I_x$, we find that&lt;/p&gt;
+&lt;p&gt;Now we need to show that $\vec E(\vec p)_y = \frac{\rho\sin\theta_p}{4\pi\epsilon_0}$. Similar to $I_x$, we find that&lt;/p&gt;
 
 &lt;div class=&quot;kdmath&quot;&gt;$$
 \begin{aligned}
@@ -314,4 +322,4 @@ $$&lt;/div&gt;
 \vec E(\vec p) = \frac{cR}{r_p}\vec n
 $$&lt;/div&gt;
 
-&lt;p&gt;Q.E.D.&lt;/p&gt;</content><author><name></name></author><summary type="html">Preface</summary></entry></feed>
+&lt;p&gt;&lt;span class=&quot;qed&quot;&gt;Q.E.D.&lt;/span&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Preface $ \gdef\vec#1{\mathbf{#1}} \gdef\abs#1{\lvert #1 \rvert} $ I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed from the top</summary></entry></feed>

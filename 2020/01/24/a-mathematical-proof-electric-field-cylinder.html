@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
  <script type="text/javascript">
@@ -19,38 +19,47 @@
      })
    })
 </script>
-<script src="/assets/script/data.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
+    <title>Why is the electric field around a cylinder orthogonal to the side?</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/post_md.css">
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-    </nav>
-    <main id="app">
-      <header>
-        <h1>A mathematical justification for the assumption the electric field around an infinite charged cylinder is orthogonal to its surface</h1>
-        <h2> {{ written_on }} </h2>
-      </header>
-      <hr>
-      <section>
-        <h1 id="preface">Preface</h1>
-
-<div class="kdmath">$$
+    <header id="top">
+      <nav>
+        <a href="/">Home</a>
+      </nav>
+      <h1>Why is the electric field around a cylinder orthogonal to the side?</h1>
+      <div class="post-date">
+        <label>Written on:&nbsp</label>
+        <time datetime="2020-01-24 00:00:00 +0900">2020-01-24</time>
+      </div>
+      <div class="post-date">
+        <label>Last edited on:&nbsp</label>
+        <time datetime="2020-04-19">2020-04-19</time>
+      </div>
+      <h2>
+        Abstract
+      </h2>
+      <p class="abstract">
+        I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss's law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. However, I thought this assumption needs a justification and so I spent a considerable amount of time proving it with rigorous mathematics.
+      </p>
+    </header>
+    <hr>
+    <main>
+      <article>
+        <h2 id="preface">Preface</h2>
+<p>$
 \gdef\vec#1{\mathbf{#1}}
 \gdef\abs#1{\lvert #1 \rvert}
-$$</div>
+$
+I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed from the top</p>
 
-<p>I have recently been reading on electrodynamics and in my textbook I encountered the problem of calculating the electric field around an infinite charged cylinder using Gauss’s law. The author of the book solved this on the assumption that the field is always orthogonal to any concentric cylinder around the charge. That is, it looks like this when viewed fro m the top</p>
-
-<p><img style="margin: auto; width: 500px; display: block;" src="/assets/images/01-cylinder-vector-field.png" /></p>
+<p><img src="/assets/images/01-cylinder-vector-field.png" /></p>
 
 <p>I understand the intuitive reasoning behind this, however I was looking for a mathematical proof of that, and since I didn’t find one, I constructed one myself. In this post I have layed out my process of reasoning and I hope that it will help other people as well.</p>
 
-<h1 id="stating-the-problem-mathematically">Stating the problem mathematically</h1>
+<h2 id="stating-the-problem-mathematically">Stating the problem mathematically</h2>
 
 <p>Given a cylinder with radius $R$, bounded by the surface</p>
 
@@ -58,7 +67,7 @@ $$</div>
 F(x, y, z) = x^2 + y^2 - R^2 = 0
 $$</div>
 
-<p>and having uniform volume charge density $\rho$, show that the electric field at any pointoutside $F$, that is, any point $\vec p = (x_p, y_p, z_p)$ such that $x_p^2 + y_p^2 &gt; R$, the total electric field is a scalar multiple of the surface normal</p>
+<p>and having <em>uniform</em> volume charge density $\rho$, show that the electric field at any point outside $F$, that is, any point $\vec p = (x_p, y_p, z_p)$ such that $x_p^2 + y_p^2 &gt; R$, the total electric field is a scalar multiple of the surface normal</p>
 
 <div class="kdmath">$$
 \vec E(\vec p) = c\vec n = c\nabla F = c\begin{pmatrix}
@@ -74,9 +83,19 @@ $$</div>
 \vec E(\vec p) = \frac{\rho}{4\pi\epsilon_0}\iiint_V \frac{\vec p - \vec x}{\abs{\vec p - \vec x}^3} dv
 $$</div>
 
-<p>Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant.</p>
+<p>Note that in the above, $\rho$ is uniform throughout the cylinder and can therefore be brought out of the integral as a constant. Furthermore, if we use cylindrical coordinates, we have</p>
 
-<h1 id="part-1---solving-for-the-z-dimension">Part 1 - Solving for the $z$ dimension</h1>
+<div class="kdmath">$$
+\begin{aligned}
+\Delta v &= \frac{1}{2}((r + \Delta r)^2 - r^2)\Delta\theta \Delta z \\
+&= \frac{1}{2}(2r\Delta r + (\Delta r^2))\Delta\theta \Delta z \\
+&= r\Delta r\Delta\theta \Delta z + (\Delta r^2)\Delta\theta \Delta z
+\end{aligned}
+$$</div>
+
+<p>When constructing the integral, we apply a limit over this</p>
+
+<h2 id="part-1---solving-for-the-z-dimension">Part 1 - Solving for the $z$ dimension</h2>
 
 <p>First, we will show that for any $\vec p$ outside of the cylinder, the electric field’s $z$ component at that point is zero. Let</p>
 
@@ -159,7 +178,7 @@ $$</div>
 
 <p>Thus we have finally shown that the electric field’s $z$ component is zero for any point outside the cylinder.</p>
 
-<h1 id="part-2---solving-for-the-x-and-y-dimensions">Part 2 - Solving for the $x$ and $y$ dimensions</h1>
+<h2 id="part-2---solving-for-the-x-and-y-dimensions">Part 2 - Solving for the $x$ and $y$ dimensions</h2>
 
 <p>First, we will show that for a point $\vec p$ outside of the cylinder, its projection on the $z = 0$ plane is parallel to the normal of $F$. Take</p>
 
@@ -309,7 +328,7 @@ $$</div>
 
 <hr />
 
-<p>Now we need to show that $\vec E(\vec p)_y = \frac{\rho\sin\theta_p}{4\pi\epsilon_0}. Similar to $I_x$, we find that</p>
+<p>Now we need to show that $\vec E(\vec p)_y = \frac{\rho\sin\theta_p}{4\pi\epsilon_0}$. Similar to $I_x$, we find that</p>
 
 <div class="kdmath">$$
 \begin{aligned}
@@ -353,27 +372,23 @@ $$</div>
 \vec E(\vec p) = \frac{cR}{r_p}\vec n
 $$</div>
 
-<p>Q.E.D.</p>
+<p><span class="qed">Q.E.D.</span></p>
 
-      </section>
+
+      </article>
+      <a id="back-to-top" href="#top">
+  <svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="0" cy="0" r="50" />
+    <line x1="-30" y1="10" x2="0" y2="-18" stroke-linecap="round"/>
+    <line x1="0" y1="-18" x2="30" y2="10" stroke-linecap="round"/>
+  </svg>
+</a>
+
     </main>
+    <footer>
+  <a href="https://twitter.com/stealthmate_val?ref_src=twsrc%5Etfw" class="twitter-follow-button sns-button" data-show-count="false">Follow @stealthmate_val</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a class="sns-button github-button" href="https://github.com/stealthmate" aria-label="Follow @stealthmate on GitHub">Follow @stealthmate</a>
+</footer>
 
-    <script>
-      var POST_LANG = "";
-      var POST_DATE = "2020-01-24";
-      var app = new Vue({
-        el: '#app',
-        computed: {
-          lang() {
-            if(LANGS.includes(POST_LANG)) { return POST_LANG }
-            return "en"
-          },
-          written_on() {
-            console.log(POST_DATE)
-            return DATA.templates.written_on[this.lang].replace("%DATE", POST_DATE)
-          }
-        }
-      })
-    </script>
   </body>
 </html>

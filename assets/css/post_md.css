@@ -168,32 +168,3 @@ header, hr, main {
 
 a {
   color: #00334D; }
-
-body {
-  color: var(--color-text);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; }
-
-section h1 {
-  border: none; }
-
-h2 {
-  color: #333;
-  padding: 3px; }
-
-nav {
-  padding: 10px;
-  display: flex;
-  flex-direction: row; }
-  nav a {
-    padding: 3px;
-    padding-left: 10px; }
-  nav .here-now {
-    font-weight: bold;
-    background: #CCCC;
-    border-radius: 10px; }
-
-main {
-  margin: 20px;
-  padding: 0px; }

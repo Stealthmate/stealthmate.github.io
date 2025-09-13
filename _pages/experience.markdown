@@ -23,13 +23,14 @@ TODO: 検索欄
 
 ### (2023 年 〜 現在) 会計データ管理
 
-_所属: LINEヤフー株式会社；趣味_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-ly-fpa)；趣味_
 
 TODO
 
 ### (2024 年) BERT 系モデル学習・運用ツールの開発
+{: #exp-bert-ai .anchor}
 
-_所属: LINEヤフー株式会社_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-ly-newgrad)_
 
 TODO
 
@@ -44,34 +45,39 @@ TODO
 - [How I almost lost access to my Vault](https://stealthmate.github.io/blog/2025/04/20/how-i-almost-lost-access-to-my-vault.html)
 
 ### (2023 年) TLS 通信監視用 ETL の開発
+{: #exp-tls-etl .anchor}
 
-_所属: LINEヤフー株式会社_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-ly-sec-eng)_
 
 TODO
 
 ### (2023 年) 認証サーバーの構築と開発
+{: #exp-auth-server .anchor}
 
-_所属: LINEヤフー株式会社_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-ly-sec-eng)_
 
 TODO
 
 ### (2020 年 〜 2022 年) Firewall 管理ツールの開発と運用
+{: #exp-lfms .anchor}
 
-_所属: LINEヤフー株式会社_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-ly-sec-eng)_
 
 関連記事:
 
 - [An intern's tale of designing LINE's firewall secretary](https://engineering.linecorp.com/en/blog/designing-line-firewall-secretary)
 
 ### (2019 年) Web Crawler の開発
+{: #exp-crawler .anchor}
 
-_所属: 株式会社 LEMO_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-lemo)_
 
 TODO
 
 ### (2018 年) Google Play 決済処理の開発
+{: #exp-google-play-payments .anchor}
 
-_所属: 株式会社 LEMO_
+_所属: [LINEヤフー株式会社](../basic-history/#hist-lemo)_
 
 TODO
 

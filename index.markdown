@@ -22,3 +22,4 @@ layout: home
 
 - [Technical Blog](./blog)
 - [Science stuff](./science-articles)
+- [今まで読んできた本](./personal-library)

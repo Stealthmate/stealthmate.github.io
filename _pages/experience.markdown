@@ -19,4 +19,5 @@ toc: true
 
 {% assign exps = site.experience | reverse %}
 {% for exp in exps %}
-- [({{ exp.custom.period }}) {{ exp.title }}]({{ exp.url }}){% endfor %}
+- [({{ exp.custom.period }}) {{ exp.title }}]({{ exp.url }}){% unless exp.custom.tags == nil %}
+    - {% for tag in exp.custom.tags %}<span class="tech-tag">{{ tag }}</span>{% endfor %}{% endunless %}{% endfor %}

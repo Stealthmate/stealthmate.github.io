@@ -50,6 +50,30 @@ $on-laptop:        1000px !default;
   "minima/syntax-highlighting"
 ;
 
+$color-highlight: #FFFF55;
+
 .anchor:target {
-  background-color: #FFFF55;
+  background-color: $color-highlight;
+}
+
+.tech-tag-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.tech-tag {
+  padding: 3px 7px;
+  background-color: #AACCFF;
+  border-radius: 10px;
+  margin: 0 3px;
+  cursor: default;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+strong {
+  color: #CC5555;
+  text-decoration: underline;
 }

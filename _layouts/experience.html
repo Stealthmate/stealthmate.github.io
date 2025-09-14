@@ -20,6 +20,14 @@ layout: default
     <p>
         <em>時期: {{ page.custom.period }}</em>
     </p>
+    <p>
+        <div class="tech-tag-container">
+          <em>関連技術:</em>
+          {% for tag in page.custom.tags %}
+          <span class="tech-tag"> {{ tag }} </span>
+          {% endfor %}
+        </div>
+    </p>
     <hr />
   </header>
 

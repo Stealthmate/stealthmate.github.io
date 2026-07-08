@@ -27,3 +27,4 @@ layout: home
     - [スライド](https://github.com/Stealthmate/wakate/releases/download/wakate57-1.0.0/wakate57-1.0.0.pdf)
     - [資料置き場](https://github.com/Stealthmate/wakate/tree/main)
     - [公式の報告](https://wakate.org/2024/11/18/57threport/) (通常発表 2)
+- [Български блог](./blog-bg)
